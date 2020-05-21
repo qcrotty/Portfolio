@@ -1,16 +1,16 @@
 
-# create better way to input the board
-board = [
-    [0, 0, 0, 0, 4, 5, 0, 2, 1],
-    [0, 0, 6, 0, 0, 0, 4, 0, 5],
-    [7, 0, 0, 0, 2, 0, 0, 0, 0],
-    [8, 9, 0, 0, 1, 2, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 5, 0, 0],
-    [0, 6, 0, 3, 0, 0, 0, 0, 0],
-    [3, 4, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 2, 0, 8, 0, 0, 0, 0],
-    [0, 0, 0, 0, 6, 1, 0, 9, 0]
-]
+
+
+def boardInput():
+    numbers = []
+    print("Input the Sudoku board from the first row, left to right")
+    print("Put a space between every number and use '0' for empty squares: ")
+    for j in range(1, 10):
+        print("Enter line ", j, ": ", end="")
+        item = list(map(int, input().split()))
+
+        numbers.append(item)
+    return numbers
 
 
 def solve(bo):
@@ -78,9 +78,8 @@ def find_empty(bo):
     return None
 
 
+board = boardInput()
 print_board(board)
 solve(board)
-print("################")
+print("########################")
 print_board(board)
-
-
